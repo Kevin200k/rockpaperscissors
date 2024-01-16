@@ -12,7 +12,7 @@ function playerSelection(id){
     let element = document.getElementById(id)
 
     if(element) {
-        alert(element.innerText);
+        return element.innerText;
     };
 }
 
@@ -26,21 +26,24 @@ scissorsValue.addEventListener("click", function(){
 
 function singleRound(){
     let computerChoice = ComputerChoice();
-    if((playerSelection == computerChoice)){
+    if((playerSelection() == computerChoice)){
         return "TIE!"
-    } else if((playerSelection == "rock" && computerChoice == "paper")){
+    } else if((playerSelection("rock") && computerChoice == "paper")){
         return "You lose, Paper beats Rock"
-    } else if((playerSelection == "paper" && computerChoice == "rock")){
+    } else if((playerSelection("paper") && computerChoice == "rock")){
         return "You win, Paper beats Rock"
-    } else if((playerSelection == "rock" && computerChoice == "scissors")){
+    } else if((playerSelection("rock") && computerChoice == "scissors")){
         return "You win, Rock beats Scissors"
-    } else if((playerSelection == "scissors" && computerChoice == "rock")){
+    } else if((playerSelection("scissors") && computerChoice == "rock")){
         return "You lose, Rock beats Scissors"
-    } else if(playerSelection == "scissors" && computerChoice == "paper"){
+    } else if(playerSelection("scissors")&& computerChoice == "paper"){
         return "You win, Scissors beats Paper"
-    } else if(playerSelection == "paper" && computerChoice == "scissors"){
+    } else if(playerSelection("paper")&& computerChoice == "scissors"){
         return "You lose, Scissors beats Paper"
     } else{
         return "Try again"
-    }}
+    }};
+
+    let demo = document.querySelector(".demo");
+    demo.innerText = singleRound();
 
