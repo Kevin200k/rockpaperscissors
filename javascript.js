@@ -13,9 +13,6 @@ function playerSelection(id){
     let element = document.getElementById(id)
 
     if(element) {
-        let res = element.innerText
-        console.log('res'+res)
-
         return element.innerText;
     };
 };
@@ -35,13 +32,23 @@ function singleRound(id){
                          playerChoice === "Rock" && computerChoice === "Scissors")){
                     return `You chose ${playerChoice}, and the Computer chose ${computerChoice}. You win!`
     }};
-
-
 function playerRound(id){
     let demo = document.querySelector(".demo");
     
     demo.innerText = singleRound(id)
     };
+
+function score(singleRound){
+    let playerScore = document.querySelector("#playerScore");
+    let computerScore = document.querySelector("#computerScore");
+
+    let j = playerScore.innerText;
+    let i = computerScore.innerText;
+    
+};
+    
+score();
+
     
 // rockValue.addEventListener("click", playerRound);
 // paperValue.addEventListener("click", playerRound);
