@@ -3,7 +3,7 @@ let ComputerChoice =  function(){
     let randomValue = rockPaperScissors[Math.floor(Math.random() * 3) + 1];
     return randomValue;
 };
-
+let buttons = document.querySelector("button")
 let rockValue = document.querySelector("#rock");
 let scissorsValue = document.querySelector("#scissors");
 let paperValue = document.querySelector("#paper");
@@ -65,16 +65,13 @@ function playerRound(id){
      } else if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
         if (i < j) {
             console.log(i);
-            demo.innerText = "You lose"  
+            demo.innerText = "Sorry, You lose"  
 
         } else if(i > j){
             console.log(j);
               demo.innerText = "Congratulations, You Win"
           }};
         };
-
-    
-
 
 // rockValue.addEvyGmaentListener("click", playerRound);
 // paperValue.addEventListener("click", playerRound);
