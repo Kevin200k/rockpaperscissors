@@ -3,7 +3,6 @@ let ComputerChoice =  function(){
     let randomValue = rockPaperScissors[Math.floor(Math.random() * 3) + 1];
     return randomValue;
 };
-let buttons = document.querySelector("button")
 let rockValue = document.querySelector("#rock");
 let scissorsValue = document.querySelector("#scissors");
 let paperValue = document.querySelector("#paper");
