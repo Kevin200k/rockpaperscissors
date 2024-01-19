@@ -8,9 +8,16 @@
 <body>
     <div id="instruction">First to five</div>
     <div id="round"></div>
-    <div id="playerScore"></div>
-    <div id="computerScore"></div>
-    <div id = "button"><button onclick="playerRound('rock')" id = "rock">Rock</button>
+    <div id="playerScore">
+        Your Score:
+        <div id ="playerScoreValue">0</div>
+    </div>
+    <div id="computerScore">
+        Computer Score:
+        <div id="computerScoreValue">0</div>
+    </div>
+    <div id = "button">
+    <button onclick="playerRound('rock')" id = "rock">Rock</button>
     <button onclick="playerRound('paper')" id = "paper">Paper</button>
     <button onclick="playerRound('scissors')" id = "scissors">Scissors</button></div>
     <div class="demo"></div>
