@@ -15,23 +15,36 @@ function playerSelection(id){
     };
 };
  
-
+let emojiName;
+let rockEmoji = "👊";
+let paperEmoji = "✋";
+let scissorsEmoji = "✌️"
 function singleRound(id){
     // let playerChoice = playerSelection("rock")||playerSelection("paper")||playerSelection("scissors");
     let playerChoice = playerSelection(id);
+    if (playerChoice === rockEmoji){
+        emojiName = "Rock";
+    }else if(playerChoice === paperEmoji){
+        emojiName = "Paper";
+    }else if(playerChoice === scissorsEmoji){
+        emojiName = "Scissors";
+    }
     let computerChoice = ComputerChoice();
-    if((playerChoice === computerChoice)){
-        // return `You chose ${playerChoice}, and the Computer chose ${computerChoice}. TIE!`
-        return ( {'result': 'TIE!', 'resultMessage':`You chose ${playerChoice}, and the Computer chose ${computerChoice}. TIE!`});
+    if((playerChoice === rockEmoji && computerChoice === "Rock")){
+        return ( {'result': 'TIE!', 'resultMessage':`You chose ${emojiName}, and the Computer chose ${computerChoice}. TIE!`});
 
-    } else if(playerChoice === "✋" && computerChoice === "Paper"||
-              playerChoice === "✌️" && computerChoice ==="Scissors"||
-              playerChoice === "👊" && computerChoice === "Rock") {
-                // return ( `You chose ${playerChoice}, and the Computer chose ${computerChoice}. You lose!`);
-                return ( {'result': 'You lose', 'resultMessage':`You chose ${playerChoice}, and the Computer chose ${computerChoice}. You lose!`});
+    } else if((playerChoice === scissorsEmoji && computerChoice === "Scissors")){
+        return ( {'result': 'TIE!', 'resultMessage':`You chose ${emojiName}, and the Computer chose ${computerChoice}. TIE!`});
+
+    } else if((playerChoice === paperEmoji&& computerChoice === "Paper")){
+        return ( {'result': 'TIE!', 'resultMessage':`You chose ${emojiName}, and the Computer chose ${computerChoice}. TIE!`});
+
+    } else if(playerChoice === rockEmoji && computerChoice === "Paper"||
+              playerChoice === paperEmoji && computerChoice ==="Scissors"||
+              playerChoice === scissorsEmoji && computerChoice === "Rock") {
+                return ( {'result': 'You lose', 'resultMessage':`You chose ${emojiName}, and the Computer chose ${computerChoice}. You lose!`});
               } else {
-            //    return (`You chose ${playerChoice}, and the Computer chose ${computerChoice}. You win!`);
-               return ( {'result': 'You win', 'resultMessage':`You chose ${playerChoice}, and the Computer chose ${computerChoice}. You win!`});
+                 return ( {'result': 'You win', 'resultMessage':`You chose ${emojiName}, and the Computer chose ${computerChoice}. You win!`});
 
               }};
 
@@ -53,7 +66,7 @@ function playerRound(id){
     demo.innerText = res.resultMessage
     
 
-    if (i <= 4 && j <= 4) {
+    if (i <4 && j <= 4) {
         if (res.result === "You win") {
             scoreOne= ++i;
             playerScoreValue.innerText = scoreOne;
@@ -63,31 +76,34 @@ function playerRound(id){
             computerScoreValue.innerText = scoreTwo;
             return computerScoreValue.innerText;
         }
-
-        // break
-     } else if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
-        if (i < j) {
-            finalResult = "Sorry, You lose" ;
-            demo.innerText = finalResult  
-
-        } else if(i > j){
-            finalResult  = "Congratulations, You Win"
-            demo.innerText = finalResult 
-          }};
-        };
+    }else if (i === 4 || j === 4) {
+        if (res.result === "You win") {
+            scoreOne= ++i;
+            playerScoreValue.innerText = scoreOne;
+            return playerScoreValue.innerText;
+        } else if (res.result === "You lose") {
+            scoreTwo = ++j;
+            computerScoreValue.innerText = scoreTwo;
+            return computerScoreValue.innerText;
+        }}
+     };
+        
 console.log(scoreOne);
     function tryAgain(){
-        if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
-            if (i < j) {
-                console.log(scoreOne);
-                finalResult = "Sorry, You lose" ;
-                demo.innerText = finalResult  
+        // if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
+        //     if (i < j) {
+        //         console.log(scoreOne);
+        //         finalResult = "Sorry, You lose" ;
+        //         demo.innerText = finalResult  
     
-            } else if(i > j){
-                console.log(scoreTwo);
-                finalResult  = "Congratulations, You Win"
-                demo.innerText = finalResult 
-              }};
+        //     } else if(i > j){
+        //         console.log(scoreTwo);
+        //         finalResult  = "Congratulations, You Win"
+        //         demo.innerText = finalResult 
+        //       }};
+        if(playerScoreValue.innerText === 5 ){
+            console.log("Hello World")
+        }
             };
     tryAgain();
 
