@@ -16,7 +16,6 @@ function playerSelection(id){
 };
  
 
-
 function singleRound(id){
     // let playerChoice = playerSelection("rock")||playerSelection("paper")||playerSelection("scissors");
     let playerChoice = playerSelection(id);
@@ -25,9 +24,9 @@ function singleRound(id){
         // return `You chose ${playerChoice}, and the Computer chose ${computerChoice}. TIE!`
         return ( {'result': 'TIE!', 'resultMessage':`You chose ${playerChoice}, and the Computer chose ${computerChoice}. TIE!`});
 
-    } else if(playerChoice === "Rock" && computerChoice === "Paper"||
-              playerChoice === "Paper" && computerChoice ==="Scissors"||
-              playerChoice === "Scissors" && computerChoice === "Rock") {
+    } else if(playerChoice === "✋" && computerChoice === "Paper"||
+              playerChoice === "✌️" && computerChoice ==="Scissors"||
+              playerChoice === "👊" && computerChoice === "Rock") {
                 // return ( `You chose ${playerChoice}, and the Computer chose ${computerChoice}. You lose!`);
                 return ( {'result': 'You lose', 'resultMessage':`You chose ${playerChoice}, and the Computer chose ${computerChoice}. You lose!`});
               } else {
@@ -43,35 +42,61 @@ let computerScoreValue = document.getElementById("computerScoreValue");
 let i = parseInt(playerScoreValue.innerText);
 let j = parseInt(computerScoreValue.innerText);
 
+let scoreOne = 0; // Player Score
+let scoreTwo = 0; // Computer Score
+let finalResult;
+
 function playerRound(id){
     let demo = document.querySelector(".demo");
     let res = singleRound(id);
-    console.log('res ='+res.result)
-    // do something
+
     demo.innerText = res.resultMessage
     
 
     if (i <= 4 && j <= 4) {
         if (res.result === "You win") {
-            playerScoreValue.innerText = ++i;
+            scoreOne= ++i;
+            playerScoreValue.innerText = scoreOne;
             return playerScoreValue.innerText;
         } else if (res.result === "You lose") {
-            computerScoreValue.innerText = ++j;
+            scoreTwo = ++j;
+            computerScoreValue.innerText = scoreTwo;
             return computerScoreValue.innerText;
         }
 
         // break
      } else if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
         if (i < j) {
-            console.log(i);
-            demo.innerText = "Sorry, You lose"  
+            finalResult = "Sorry, You lose" ;
+            demo.innerText = finalResult  
 
         } else if(i > j){
-            console.log(j);
-              demo.innerText = "Congratulations, You Win"
+            finalResult  = "Congratulations, You Win"
+            demo.innerText = finalResult 
           }};
         };
+console.log(scoreOne);
+    function tryAgain(){
+        if((i === 5 && !(j === 5))||(!(i === 5) && j === 5)){
+            if (i < j) {
+                console.log(scoreOne);
+                finalResult = "Sorry, You lose" ;
+                demo.innerText = finalResult  
+    
+            } else if(i > j){
+                console.log(scoreTwo);
+                finalResult  = "Congratulations, You Win"
+                demo.innerText = finalResult 
+              }};
+            };
+    tryAgain();
 
+let container = document.querySelector(".container");
+let dialogue = document.querySelector(".dialogue")
+function play(){
+    container.style.display = "block";
+    dialogue.style.display = "none"
+}
 // rockValue.addEvyGmaentListener("click", playerRound);
 // paperValue.addEventListener("click", playerRound);
 // scissorsValue.addEventListener("click", playerRound);

@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+<head>                                          
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="instruction">First to five</div>
-    <div id="round"></div>
-    <div id="playerScore">
-        Your Score:
-        <div id ="playerScoreValue">0</div>
+    <header>ROCK PAPER SCISSORS</header>
+    <div class="container">
+        <div id="container">
+            <div id="instruction">First to five</div>
+            <div id="round"></div>
+            <div class="score">
+                <div id="playerScore">
+                    Your Score
+                    <div id ="playerScoreValue">0</div>
+                </div>
+                <div id="computerScore">
+                    Computer Score
+                    <div id="computerScoreValue">0</div>
+                </div>
+            </div>
+            <div id = "button">
+             <button onclick="playerRound('rock')" id = "rock" class = "button">👊</button>
+            <button onclick="playerRound('paper')" id = "paper"class = "button">✋</button>
+            <button onclick="playerRound('scissors')" id = "scissors"class = "button">✌️</button>
+        </div>
+        <div class="demo"></div>
+        </div>
     </div>
-    <div id="computerScore">
-        Computer Score:
-        <div id="computerScoreValue">0</div>
+    <div class="dialogue">
+            <div class="content">
+                <p>Ready to Play</p>
+                <button onclick="play()">Click here</button>
+            </div>
     </div>
-    <div id = "button">
-    <button onclick="playerRound('rock')" id = "rock">Rock</button>
-    <button onclick="playerRound('paper')" id = "paper">Paper</button>
-    <button onclick="playerRound('scissors')" id = "scissors">Scissors</button></div>
-    <div class="demo"></div>
+    <div class="dialogue2"></div>
     <script src="javascript.js"></script>
 </body>
 </html>

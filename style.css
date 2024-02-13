@@ -1,0 +1,160 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Concert One", sans-serif;
+}
+:root{
+    --text-color: hsl(52, 100%, 50%);
+    --text-shadow: 3px 3px 10px;
+}
+header{
+    height: 100px;
+    background-color: black;
+    display: flex;
+    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-shadow: 3px 3px 10px;
+    border-bottom: 2px solid var(--text-color);
+}
+.container{
+    display: none;
+}
+#container{
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-color: black;
+    color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: -100px;
+}
+#instruction{
+    font-family: "Concert One", sans-serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 20px;
+    color: var(--text-color);
+}
+.score{
+    display: flex;
+    gap: 20px;
+    font-size: 2em;
+}
+#playerScoreValue{
+    text-align: center;
+    margin-top: 8px;
+    color: var(--text-color);
+    text-shadow: 1px 1px 9px;
+
+
+}
+#computerScoreValue{
+    margin-top: 8px;
+    text-align: center;
+    text-shadow: 1px 1px 9px;
+    color: var(--text-color);
+
+}
+#button{
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+.button{
+    width: 100px;
+    padding: 1rem ;
+    border-radius: 10px;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    background-color: transparent;
+    font-size: 2.8rem;
+    box-shadow: 1px 1px 7px;
+
+}
+.button:hover{
+    --text-color: hsla(52, 100%, 50%, 0.65);
+    border: transparent;
+    color: black;
+    background-color: var(--text-color);
+}
+.demo{
+    color: white;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: absolute;
+    bottom: 40px;
+}
+.dialogue{
+    /* width: 100%; */
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content p{
+    font-family: "Concert One", sans-serif;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    text-shadow: 3px 3px 10px;
+
+    margin-top:-100px ;
+}
+.content button{
+    padding: 1rem 2rem;
+    font-size: 1.4em;
+    border-radius: 7px;
+    font-family: "Concert One", sans-serif;
+    border: 0px;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    text-shadow: 3px 3px 10px;
+    box-shadow: 3px 3px 15px;
+    animation: slidein 2sec ease-in-out infinite alternate both;
+}
+.content button:hover{
+    border: transparent;
+    color: black;
+    text-shadow: 0px 0px 0px;
+    background-color: var(--text-color);
+
+}
+@keyframes slidein{
+    0%{
+        transform: translateY(0%) ;
+    }
+    50%{
+        transform:translateY(10%)  ;
+    }
+    100%{
+        transform: translateY(0%) ;
+}
+
+}
+@media screen and (min-width = 800px){
+   .content p{
+    font-size: 5rem;
+   } 
+   header{
+    font-size: 3rem;
+   }
+}
