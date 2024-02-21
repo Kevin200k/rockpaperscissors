@@ -62,57 +62,43 @@ let demo = document.querySelector(".demo");
 function playerRound(id){
     let res = singleRound(id);
     demo.innerText = res.resultMessage
+    demo.setAttribute("style", "font-size:24px; color:white; text-shadow: 0px 0px 0px;")
     
 
-    if (i <4 && j < 4) {
+    if (i <= 4 && j <= 4) {
+        console.log("logAi", i)
+        console.log("logAj", j)
         if (res.result === "You win") {
             scoreOne= ++i;
             playerScoreValue.innerText = scoreOne;
-            return playerScoreValue.innerText;
+            // return playerScoreValue.innerText;
         } else if (res.result === "You lose") {
             scoreTwo = ++j;
             computerScoreValue.innerText = scoreTwo;
-            return computerScoreValue.innerText;
+            // return computerScoreValue.innerText;
         }
-    }else if (i === 4 || j === 4) {
-        if (i <4 || j < 4) {
-            if (res.result === "You win") {
-                scoreOne= ++i;
-                playerScoreValue.innerText = scoreOne;
-                return playerScoreValue.innerText;
-            } else if (res.result === "You lose") {
-                scoreTwo = ++j;
-                computerScoreValue.innerText = scoreTwo;
-                return computerScoreValue.innerText;
-        }}
-        else if (res.result === "You win") {
-            scoreOne= ++i;
-            if(scoreOne === 5){
-                playerScoreValue.innerText = scoreOne;
-                button.style.display = "none";
-                playAgain.style.display = "block";
-                demo.setAttribute("style", "font-size:40px; color:hsla(52, 100%, 50%); text-shadow: 3px 3px 10px;");
-                demo.innerText = 'Congratulations, You Win';
-            }
-           
-        } else if (res.result === "You lose") {
-            scoreTwo = ++j;
-           if(scoreTwo === 5){
-                computerScoreValue.innerText = scoreTwo;
-                button.style.display = "none";
-                playAgain.style.display = "block";
-                demo.setAttribute("style", "font-size:40px; color:hsla(52, 100%, 50%); text-shadow: 3px 3px 10px;");
-                demo.innerText = 'Sorry, Lose';
-                ;
-           } else if((res.result === "TIE!")){
-                scoreOne = i;
-                scoreTwo = j;
-           }
-        }}
-    // }else if(i === 5 && !(j === 5) || j === 5 && !(i === 5)){
-    //         finalResult();
-    //     }
-    };
+    
+
+
+        if ((i === 5 && !(j === 5)) || (j === 5 && !(i === 5))) {
+        if (i > j) {
+            playerScoreValue.innerText = scoreOne;
+            button.style.display = "none";
+            playAgain.style.display = "block";
+            demo.setAttribute("style", "font-size:40px; color:hsla(52, 100%, 50%); text-shadow: 3px 3px 10px;");
+            demo.innerText = 'Congratulations, You Win';
+        }else{
+            computerScoreValue.innerText = scoreTwo;
+            button.style.display = "none";
+            playAgain.style.display = "block";
+            demo.setAttribute("style", "font-size:40px; color:hsla(52, 100%, 50%); text-shadow: 3px 3px 10px;");
+            demo.innerText = 'Sorry, Lose';
+            
+        }
+          
+    }}
+    
+};
 
 let button = document.querySelector("#button");
 let playAgain = document.querySelector(".playAgain")
@@ -152,5 +138,4 @@ function play(){
 // singleRound() === `You chose Rock, and the Computer chose Paper. You lose!`||
 // singleRound() === `You chose Paper, and the Computer chose Scissors. You lose!`||
 // singleRound() === `You chose Scissors, and the Computer chose Rock. You lose!`
-
 
